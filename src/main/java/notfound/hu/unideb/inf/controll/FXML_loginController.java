@@ -1,4 +1,4 @@
-package notfound.hu.unideb.inf;
+package notfound.hu.unideb.inf.controll;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

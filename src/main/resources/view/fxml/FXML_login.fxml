@@ -13,8 +13,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="notfound.hu.unideb.inf.controller.FXML_loginController">
     <children>
         <Label fx:id="welcomeText" layoutX="106.0" layoutY="29.0" prefHeight="17.0" prefWidth="155.0" />
-        <Button fx:id="onHelloButtonClick" layoutX="260.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginHandler" prefHeight="33.0" prefWidth="90.0" text="Belépés" />
-        <TextField layoutX="230.0" layoutY="105.0" />
+        <Button fx:id="login" layoutX="260.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginHandler" prefHeight="33.0" prefWidth="90.0" text="Belépés" />
+        <TextField fx:id="loginName" layoutX="230.0" layoutY="105.0" />
         <Hyperlink layoutX="254.0" layoutY="229.0" text="Elfelejtett jelszó" />
         <Label layoutX="54.0" layoutY="105.0" prefHeight="26.0" prefWidth="155.0" text="Felhasználónév">
             <font>
@@ -26,7 +26,7 @@
                 <Font size="17.0" />
             </font>
         </Label>
-        <PasswordField layoutX="230.0" layoutY="142.0" />
+        <PasswordField fx:id="loginPassword" layoutX="230.0" layoutY="142.0" />
         <Text layoutX="180.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bejelentkezés" textAlignment="CENTER" wrappingWidth="230.13671875">
             <font>
                 <Font name="AdobeDevanagari-Regular" size="38.0" />

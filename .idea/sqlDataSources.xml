@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="63103576-aa81-49ad-91d0-f674ca05a282" name="sfmnotfound.database.windows.net Mapping">
+      <data-sources db="3a2b6514-7672-4514-860f-c3057ce5ce42" ddl="aac8be44-5834-4157-a776-0a4cadb44b3a" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>

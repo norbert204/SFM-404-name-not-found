@@ -1,4 +1,4 @@
-package notfound.hu.unideb.inf.controller;
+package hu.unideb.inf.notfound.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

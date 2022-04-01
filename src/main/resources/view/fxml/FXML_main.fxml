@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1327.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="notfound.hu.unideb.inf.controller.FXML_mainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1327.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_mainController">
     <children>
         <Button layoutX="27.0" layoutY="69.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="78.0" text="Új termék" />
         <Button layoutX="112.0" layoutY="69.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="100.0" text="Termék levétele" />

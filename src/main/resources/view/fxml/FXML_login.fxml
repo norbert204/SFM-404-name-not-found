@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="notfound.hu.unideb.inf.controller.FXML_loginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_loginController">
     <children>
         <Label fx:id="welcomeText" layoutX="106.0" layoutY="29.0" prefHeight="17.0" prefWidth="155.0" />
         <Button fx:id="login" layoutX="260.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginHandler" prefHeight="33.0" prefWidth="90.0" text="Belépés" />

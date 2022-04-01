@@ -1,8 +1,7 @@
-package notfound.hu.unideb.inf.main;
+package hu.unideb.inf.notfound;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
-import static notfound.hu.unideb.inf.model.SqlManager.connect;
+import static hu.unideb.inf.notfound.model.SqlManager.connect;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

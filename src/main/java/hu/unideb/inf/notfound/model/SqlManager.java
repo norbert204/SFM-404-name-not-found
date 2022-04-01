@@ -1,4 +1,4 @@
-package notfound.hu.unideb.inf.model;
+package hu.unideb.inf.notfound.model;
 import java.sql.*;
 import java.util.logging.Logger;
 public class SqlManager {

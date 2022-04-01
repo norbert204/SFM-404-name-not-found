@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="hu.unideb.inf.notfound">
+    <persistence-unit name="notfound-jpa">
         <description>Leltár adatbázis Hibernate</description>
         <class>hu.unideb.inf.notfound.model.Products</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

@@ -30,24 +30,24 @@ public class JpaProductDAO implements ProductDAO{
     @Override
     public void saveProduct(Products p) {
         entityManager.getTransaction().begin();
-        entityManager.persist(p);
+        entityManager.merge(p);
         entityManager.getTransaction().commit();
     }
 
     @Override
     public void deleteProduct(Products p) {
         entityManager.getTransaction().begin();
-        entityManager.remove(p);
-        entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public void updateProduct(Products p) {
-        entityManager.getTransaction().begin();
         entityManager.persist(p);
         entityManager.getTransaction().commit();
     }
 
+   /* @Override
+    public void updateProduct(Products p) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(p);                       // ez most nem kell
+        entityManager.getTransaction().commit();
+    }
+*/
     @Override
     public List<Products> getProducts() {
 

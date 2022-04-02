@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Products {
     @Id
-    @GeneratedValue
+
     private int product_code;
 
     private String product_name;

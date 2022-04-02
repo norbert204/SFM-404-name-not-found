@@ -32,18 +32,19 @@ public class Main extends Application {
 
 
             Products p = new Products();
-            p.setProduct_code(15);
+            p.setProduct_code(0);
             p.setProduct_name("TestJPA");
             p.setQuantity(2);
             p.setUnit_price(1000);
             p.setTotal_price(2000);
             p.setCategory("test");
-            p.setDescription("test");
+            p.setDescription("test2");
             p.setLink("test");
             pDAO.saveProduct(p);
 
             //aDAO.close();
         } catch (Exception e) {
+
             e.printStackTrace();
         }
     }

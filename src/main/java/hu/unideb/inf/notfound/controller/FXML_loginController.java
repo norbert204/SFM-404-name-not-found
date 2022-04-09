@@ -1,4 +1,6 @@
 package hu.unideb.inf.notfound.controller;
+import hu.unideb.inf.notfound.model.JpaProductDAO;
+import hu.unideb.inf.notfound.model.ProductDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,11 +28,23 @@ public class FXML_loginController {
     private Button loginBtn;
 
     @FXML
+    private Label loginStatus;
+
+    @FXML
     void loginHandler(ActionEvent event) throws IOException {
-        Parent main_parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXML_main.fxml"));
-        Scene main_scene = new Scene(main_parent);
-        Stage inventory = (Stage)((Node)event.getSource()).getScene().getWindow();
-        inventory.setScene(main_scene);
-        inventory.show();
+        loginBtn.setDisable(true);
+        loginStatus.setText("Bejelentkezés...");
+        try (ProductDAO pDAO = new JpaProductDAO(loginName.getText(), loginPassword.getText()))
+        {
+            Parent main_parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXML_main.fxml"));
+            Scene main_scene = new Scene(main_parent);
+            Stage inventory = (Stage)((Node)event.getSource()).getScene().getWindow();
+            inventory.setScene(main_scene);
+            inventory.show();
+        }
+        catch (Exception e) {
+            loginBtn.setDisable(false);
+            loginStatus.setText(e.getMessage());
+        }
     }
 }

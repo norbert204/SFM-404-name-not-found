@@ -1,21 +1,35 @@
 package hu.unideb.inf.notfound.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Products {
+    @Column(name = "product_code")
     @Id
-
     private int product_code;
 
+    @Column(name = "product_name")
     private String product_name;
+
+    @Column(name = "quantity")
     private int quantity;
+
+    @Column(name = "unit_price")
     private int unit_price;
+
+    @Column(name = "total_price")
     private int total_price;
+
+    @Column(name = "category")
     private String category;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "link")
     private String link;
 
     public int getProduct_code() {

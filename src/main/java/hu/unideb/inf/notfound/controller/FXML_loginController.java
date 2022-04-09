@@ -36,6 +36,7 @@ public class FXML_loginController {
         loginStatus.setText("Bejelentkezés...");
         try (ProductDAO pDAO = new JpaProductDAO(loginName.getText(), loginPassword.getText()))
         {
+            FXML_mainController.setDao(pDAO);
             Parent main_parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXML_main.fxml"));
             Scene main_scene = new Scene(main_parent);
             Stage inventory = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -45,6 +46,7 @@ public class FXML_loginController {
         catch (Exception e) {
             loginBtn.setDisable(false);
             loginStatus.setText(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

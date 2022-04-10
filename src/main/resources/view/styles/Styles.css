@@ -1,3 +1,29 @@
-.button {
+#login_sceen{
+    -fx-background-color:#2a2e37;
+}
+
+#login_title{
+    -fx-font-size:3em;
+    -fx-background-color:transparent;
+    -fx-text-fill:#00ff00;
+}
+
+#login_button
+{
+    -fx-font-size:2em;
+    -fx-border-width:3px;
+    -fx-background-color:linear-gradient(from 25px 25px to 100px 100px, black, rgb(240, 237, 237));
+    -fx-text-fill:#00ff00;
+    -fx-background-radius: 1200px;
     -fx-font-weight: bold;
+
+}
+
+.login_data{
+    -fx-text-fill:#00ff00;
+    -fx-font-size:2em;
+}
+#error_box
+{
+    -fx-text-fill:#ff0000;
 }

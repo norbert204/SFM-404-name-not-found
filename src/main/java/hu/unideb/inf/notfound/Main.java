@@ -4,11 +4,13 @@ import hu.unideb.inf.notfound.model.JpaProductDAO;
 import hu.unideb.inf.notfound.model.ProductDAO;
 import hu.unideb.inf.notfound.model.Products;
 import javafx.application.Application;
-import static hu.unideb.inf.notfound.model.SqlManager.connect;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -23,7 +25,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        launch(args);
+        //launch(args);
+        List<Products> termekek = new ArrayList<>();
+
     }
 
 }

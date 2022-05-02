@@ -41,6 +41,7 @@ public class FXML_loginController {
             Scene main_scene = new Scene(main_parent);
             Stage inventory = (Stage)((Node)event.getSource()).getScene().getWindow();
             inventory.setScene(main_scene);
+            inventory.setTitle("Termékek");
             inventory.show();
         }
         catch (Exception e) {

@@ -16,10 +16,11 @@ public class CsvImporter {
     {
         List<Products> termekek = new ArrayList<>();
         BufferedReader reader;
+
         try {
             reader = new BufferedReader(new FileReader(csvlocation));
             String line = reader.readLine();
-            while (line != null) {
+            while ((line = reader.readLine()) != null) {
 
                 System.out.println(line);
                 String[] sordarab = line.split(";");
@@ -36,9 +37,6 @@ public class CsvImporter {
 
 
                 termekek.add(product);
-
-                line = reader.readLine();
-
             }
             reader.close();
 

@@ -1,22 +1,34 @@
 package hu.unideb.inf.notfound.controller;
 
+import hu.unideb.inf.notfound.model.CsvImporter;
 import hu.unideb.inf.notfound.model.ProductDAO;
 import hu.unideb.inf.notfound.model.Products;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FXML_mainController implements Initializable {
 
     private static ProductDAO dao;
+
+    @FXML
+    private AnchorPane mainPane;
 
     @FXML
     private TableColumn<Products, String> categoryCol;
@@ -44,6 +56,9 @@ public class FXML_mainController implements Initializable {
 
     @FXML
     private TableView<Products> mainTable;
+
+    @FXML
+    private Button mainCsv;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,5 +88,25 @@ public class FXML_mainController implements Initializable {
 
     public static void setDao(ProductDAO p) {
         dao = p;
+    }
+
+    @FXML
+    void loadCsv(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("CSV", "*.csv");
+        chooser.getExtensionFilters().add(filter);
+        File file = chooser.showOpenDialog((Stage) mainPane.getScene().getWindow());
+
+        try {
+            List<Products> products = CsvImporter.CsvImporter(file.getAbsolutePath());
+            dao.saveCsvProduct(products);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Hiba a csv importálása közben!");
+            alert.showAndWait();
+        }
+
     }
 }

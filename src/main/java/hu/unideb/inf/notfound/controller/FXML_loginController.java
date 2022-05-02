@@ -14,6 +14,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.Time;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 
 public class FXML_loginController {
@@ -34,6 +37,7 @@ public class FXML_loginController {
     void loginHandler(ActionEvent event) throws IOException {
         loginBtn.setDisable(true);
         loginStatus.setText("Bejelentkezés...");
+
         try (ProductDAO pDAO = new JpaProductDAO(loginName.getText(), loginPassword.getText()))
         {
             FXML_mainController.setDao(pDAO);

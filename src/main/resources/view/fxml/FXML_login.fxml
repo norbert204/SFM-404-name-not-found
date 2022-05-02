@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="login_sceen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="714.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_loginController">
+<GridPane id="login_sceen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="714.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_loginController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -83,10 +83,10 @@
                                 </PasswordField>
                             </children>
                         </GridPane>
+                    <Label id="error_box" fx:id="loginStatus" prefHeight="28.0" prefWidth="393.0" />
                     </children>
                 </VBox>
             </children>
         </GridPane>
-        <Label id="error_box" fx:id="loginStatus" prefHeight="17.0" prefWidth="203.0" GridPane.rowIndex="2" />
     </children>
 </GridPane>

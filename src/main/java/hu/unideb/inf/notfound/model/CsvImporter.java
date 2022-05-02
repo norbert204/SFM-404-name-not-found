@@ -12,12 +12,12 @@ import java.util.List;
 
 public class CsvImporter {
 
-    public static void CsvImporter()
+    public static List<Products> CsvImporter(String csvlocation)
     {
         List<Products> termekek = new ArrayList<>();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("termekek.csv"));
+            reader = new BufferedReader(new FileReader(csvlocation));
             String line = reader.readLine();
             while (line != null) {
 
@@ -31,6 +31,8 @@ public class CsvImporter {
                 product.setUnit_price(Integer.parseInt(sordarab[2]));
                 product.setCategory(sordarab[4]);
                 product.setDescription(sordarab[5]);
+                product.setQuantity(Integer.parseInt(sordarab[6]));
+                product.setLink(sordarab[7]);
 
 
                 termekek.add(product);
@@ -39,9 +41,11 @@ public class CsvImporter {
 
             }
             reader.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return termekek;
     }
 }

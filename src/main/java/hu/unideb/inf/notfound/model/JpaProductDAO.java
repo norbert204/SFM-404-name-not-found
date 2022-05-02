@@ -34,9 +34,12 @@ public class JpaProductDAO implements ProductDAO{
         entityManager.getTransaction().commit();
     }
     @Override
-    public void saveCsvProduct(List <Products> p) {
+    public void saveCsvProduct(List <Products> termeklista) {
         entityManager.getTransaction().begin();
-        entityManager.merge(p);
+
+        for (Products product:termeklista) {
+            entityManager.merge(product);
+        }
         entityManager.getTransaction().commit();
     }
 

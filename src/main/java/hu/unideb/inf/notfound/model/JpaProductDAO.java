@@ -38,7 +38,7 @@ public class JpaProductDAO implements ProductDAO{
         entityManager.getTransaction().begin();
 
         for (Products product:termeklista) {
-            entityManager.merge(product);
+            entityManager.persist(product);
         }
         entityManager.getTransaction().commit();
     }
@@ -46,7 +46,7 @@ public class JpaProductDAO implements ProductDAO{
     @Override
     public void deleteProduct(Products p) {
         entityManager.getTransaction().begin();
-        entityManager.persist(p);
+        entityManager.remove(p);
         entityManager.getTransaction().commit();
     }
 
@@ -68,8 +68,9 @@ public class JpaProductDAO implements ProductDAO{
 
     @Override
     public void close() throws Exception {
-        entityManager.close();
-        entityFactory.close();
+        //entityManager.close();
+        //entityFactory.close();
+
 
     }
 }

@@ -20,6 +20,7 @@ public class CsvImporter {
         try {
             reader = new BufferedReader(new FileReader(csvlocation));
             String line = reader.readLine();
+
             while ((line = reader.readLine()) != null) {
 
                 System.out.println(line);

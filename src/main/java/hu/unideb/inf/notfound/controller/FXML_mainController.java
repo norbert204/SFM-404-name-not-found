@@ -100,6 +100,10 @@ public class FXML_mainController implements Initializable {
         try {
             List<Products> products = CsvImporter.CsvImporter(file.getAbsolutePath());
             dao.saveCsvProduct(products);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Sikeres importálás!");
+            alert.showAndWait();
         }
         catch (Exception e) {
             e.printStackTrace();

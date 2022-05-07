@@ -93,6 +93,7 @@ public class FXML_mainController implements Initializable {
             Parent productBox = (Parent) loader.load();
             FXML_productController controller = loader.getController();
             controller.setDao(this.dao);
+            controller.setMainController(this);
             Stage stage = new Stage();
             stage.setTitle("Termék felvétele");
             stage.setScene(new Scene(productBox));
@@ -117,7 +118,7 @@ public class FXML_mainController implements Initializable {
         return dao;
     }
 
-    void updateTable() {
+    public void updateTable() {
         products = FXCollections.observableList(dao.getProducts());
         mainTable.setItems(products);
     }

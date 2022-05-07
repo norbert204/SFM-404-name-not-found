@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class FXML_productController {
+    private  FXML_mainController mainController;
 
     private ProductDAO dao;
     @FXML
@@ -29,16 +30,25 @@ public class FXML_productController {
 
     @FXML
     void addProduct(ActionEvent event) {
+
         Products product = new Products();
+        product.setProduct_code("254");
         product.setProduct_name(product_name.getText());
         product.setCategory(category.getText());
         product.setQuantity(Integer.parseInt(quantity.getText()));
         product.setUnit_price(Integer.parseInt(unit_price.getText()));
 
         dao.saveProduct(product);
+        mainController.updateTable();
+
     }
 
     public void setDao(ProductDAO p) {
         this.dao = p;
+    }
+
+    public void setMainController( FXML_mainController Controller  )
+    {
+        mainController = Controller;
     }
 }

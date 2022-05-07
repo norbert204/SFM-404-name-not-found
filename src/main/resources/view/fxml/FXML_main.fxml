@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1327.0" style="-fx-background-color: #2c3845;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_mainController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1327.0" style="-fx-background-color: #2c3845;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_mainController">
     <children>
         <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="107.0" text="Új termék" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
         <Button layoutX="129.0" layoutY="21.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="153.0" text="Termék levétele" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="14.0" />
-        <TableView fx:id="mainTable" layoutX="14.0" layoutY="51.0" onMouseClicked="#mainTableSelect" prefHeight="723.0" prefWidth="1299.0" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="51.0">
+        <TableView fx:id="mainTable" layoutX="14.0" layoutY="51.0" onMouseClicked="#mainTableSelect" prefHeight="682.0" prefWidth="1299.0" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="51.0">
             <columns>
                 <TableColumn fx:id="idCol" editable="false" resizable="false" text="Cikkszám" />
                 <TableColumn fx:id="nameCol" editable="false" prefWidth="142.0" resizable="false" text="Terméknév" />
@@ -21,5 +24,6 @@
         </TableView>
         <CheckBox fx:id="mainInStock" layoutX="1120.0" layoutY="85.0" mnemonicParsing="false" onAction="#mainInStockCheck" prefHeight="17.0" prefWidth="193.0" text="Csak raktáron lévő termékek" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Button fx:id="mainCsv" layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadCsv" text="Importálás CSV-ből" />
+      <Button layoutX="1169.0" layoutY="743.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="25.0" prefWidth="143.0" text="Termékek frissítése" />
     </children>
 </AnchorPane>

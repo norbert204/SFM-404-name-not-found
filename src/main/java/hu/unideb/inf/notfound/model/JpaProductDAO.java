@@ -28,41 +28,41 @@ public class JpaProductDAO implements ProductDAO{
     }
 
     @Override
-    public void saveProduct(Products p) {
+    public void saveProduct(Product p) {
         entityManager.getTransaction().begin();
         entityManager.merge(p);
         entityManager.getTransaction().commit();
     }
     @Override
-    public void saveCsvProduct(List <Products> termeklista) {
+    public void saveCsvProduct(List <Product> termeklista) {
         entityManager.getTransaction().begin();
 
-        for (Products product:termeklista) {
+        for (Product product:termeklista) {
             entityManager.persist(product);
         }
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public void deleteProduct(Products p) {
+    public void deleteProduct(Product p) {
         entityManager.getTransaction().begin();
         entityManager.remove(p);
         entityManager.getTransaction().commit();
     }
 
    /* @Override
-    public void updateProduct(Products p) {
+    public void updateProduct(Product p) {
         entityManager.getTransaction().begin();
         entityManager.persist(p);                       // ez most nem kell
         entityManager.getTransaction().commit();
     }
 */
     @Override
-    public List<Products> getProducts() {
+    public List<Product> getProducts() {
 
-        TypedQuery<Products> query = entityManager.createQuery(
-                "SELECT p FROM Products p", Products.class);
-        List<Products> products = query.getResultList();
+        TypedQuery<Product> query = entityManager.createQuery(
+                "SELECT p FROM Product p", Product.class);
+        List<Product> products = query.getResultList();
         return products;
     }
 

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="product_windows" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="377.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_productController">
+<AnchorPane id="product_windows" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="817.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_productController">
    <children>
-      <TextField id="productName" fx:id="product_name" layoutX="28.0" layoutY="65.0" />
-      <Label layoutX="28.0" layoutY="40.0" text="Termék név" />
-      <TextField id="productName" fx:id="quantity" layoutX="28.0" layoutY="125.0" />
-      <Label layoutX="28.0" layoutY="100.0" text="Mennyiség" />
-      <TextField id="productName" fx:id="unit_price" layoutX="28.0" layoutY="182.0" />
-      <Label layoutX="28.0" layoutY="157.0" text="Nettó ár" />
-      <TextField id="productName" fx:id="category" layoutX="28.0" layoutY="247.0" />
-      <Label layoutX="28.0" layoutY="222.0" text="Kategória" />
-      <Button fx:id="apply" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="32.0" prefWidth="144.0" text="Felvitel" />
+      <Button fx:id="apply" layoutX="337.0" layoutY="447.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="32.0" prefWidth="144.0" text="Felvitel" />
+      <TextField fx:id="productCode" disable="true" editable="false" layoutX="364.0" layoutY="36.0" prefHeight="25.0" prefWidth="90.0" />
+      <Label layoutX="30.0" layoutY="74.0" text="Termék neve" />
+      <TextField fx:id="productName" layoutX="30.0" layoutY="101.0" />
+      <Label layoutX="30.0" layoutY="143.0" text="Kategória" />
+      <TextField fx:id="productCategory" layoutX="30.0" layoutY="170.0" />
+      <Label layoutX="30.0" layoutY="206.0" prefHeight="17.0" prefWidth="120.0" text="Egység ár (Nettó)" />
+      <TextField fx:id="productUnitPrice" layoutX="30.0" layoutY="233.0" />
+      <Label layoutX="30.0" layoutY="274.0" prefHeight="17.0" prefWidth="120.0" text="Mennyiség" />
+      <TextField fx:id="productQuantity" layoutX="30.0" layoutY="301.0" />
+      <Label layoutX="30.0" layoutY="345.0" prefHeight="17.0" prefWidth="120.0" text="Érték" />
+      <TextField fx:id="productTotalPrice" disable="true" editable="false" layoutX="30.0" layoutY="372.0" />
+      <TextField fx:id="productDescription" layoutX="409.0" layoutY="168.0" prefHeight="181.0" prefWidth="369.0" />
+      <Label layoutX="409.0" layoutY="143.0" text="Rövid leírás a termékről" />
+      <TextField fx:id="productLink" layoutX="524.0" layoutY="372.0" prefHeight="25.0" prefWidth="254.0" />
+      <Label layoutX="416.0" layoutY="376.0" text="Link a termékhez:" />
    </children>
 </AnchorPane>

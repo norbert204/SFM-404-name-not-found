@@ -1,10 +1,7 @@
 package hu.unideb.inf.notfound.model;
 
-import hu.unideb.inf.notfound.model.Products;
-
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,9 +9,9 @@ import java.util.List;
 
 public class CsvImporter {
 
-    public static List<Products> CsvImporter(String csvlocation)
+    public static List<Product> CsvImporter(String csvlocation)
     {
-        List<Products> termekek = new ArrayList<>();
+        List<Product> termekek = new ArrayList<>();
         BufferedReader reader;
 
         try {
@@ -26,14 +23,14 @@ public class CsvImporter {
                 System.out.println(line);
                 String[] sordarab = line.split(";");
 
-                Products product = new Products();
+                Product product = new Product();
 
-                product.setProduct_code(sordarab[0]);
-                product.setProduct_name(sordarab[1]);
-                product.setUnit_price(Integer.parseInt(sordarab[2]));
-                product.setCategory(sordarab[4]);
+                product.setProductCode(sordarab[0]);
+                product.setProductName(sordarab[1]);
+                product.setProductUnitPrice(Integer.parseInt(sordarab[2]));
+                product.setProductCategory(sordarab[4]);
                 product.setDescription(sordarab[5]);
-                product.setQuantity(Integer.parseInt(sordarab[6]));
+                product.setProductQuantity(Integer.parseInt(sordarab[6]));
                 product.setLink(sordarab[7]);
 
 

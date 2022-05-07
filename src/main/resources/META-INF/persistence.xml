@@ -6,7 +6,7 @@
 
     <persistence-unit name="notfound-jpa">
         <description>Leltár adatbázis Hibernate</description>
-        <class>hu.unideb.inf.notfound.model.Products</class>
+        <class>hu.unideb.inf.notfound.model.Product</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>

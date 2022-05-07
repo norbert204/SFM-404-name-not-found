@@ -1,16 +1,14 @@
 package hu.unideb.inf.notfound.controller;
 
 import hu.unideb.inf.notfound.model.CsvImporter;
-import hu.unideb.inf.notfound.model.JpaProductDAO;
+import hu.unideb.inf.notfound.model.Product;
 import hu.unideb.inf.notfound.model.ProductDAO;
-import hu.unideb.inf.notfound.model.Products;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -22,16 +20,14 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.time.LocalTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class FXML_mainController implements Initializable {
 
     private ProductDAO dao;
-    private ObservableList<Products> products;
+    private ObservableList<Product> products;
     private long tableLastClick;
     private int tableLastIndex = -1;
 
@@ -39,48 +35,46 @@ public class FXML_mainController implements Initializable {
     private AnchorPane mainPane;
 
     @FXML
-    private TableColumn<Products, String> categoryCol;
+    private TableColumn<Product, Integer> idCol;
 
     @FXML
-    private TableColumn<Products, String> descriptionCol;
+    private TableColumn<Product, String> nameCol;
 
     @FXML
-    private TableColumn<Products, Integer> idCol;
+    private TableColumn<Product, Integer> priceCol;
 
     @FXML
-    private TableColumn<Products, String> linkCol;
+    private TableColumn<Product, Integer> quantityCol;
 
     @FXML
-    private TableColumn<Products, String> nameCol;
+    private TableColumn<Product, Integer> valueCol;
 
     @FXML
-    private TableColumn<Products, Integer> priceCol;
+    private TableColumn<Product, String> categoryCol;
 
     @FXML
-    private TableColumn<Products, Integer> quantityCol;
+    private TableColumn<Product, String> descriptionCol;
 
     @FXML
-    private TableColumn<Products, Integer> valueCol;
+    private TableColumn<Product, String> linkCol;
 
     @FXML
-    private TableView<Products> mainTable;
+    private TableView<Product> mainTable;
 
-    @FXML
-    private Button mainCsv;
 
     @FXML
     private CheckBox mainInStock;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        idCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("product_code"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<Products, String>("product_name"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("quantity"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("unit_price"));
-        valueCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("total_price"));
-        categoryCol.setCellValueFactory(new PropertyValueFactory<Products, String>("category"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<Products, String>("description"));
-        linkCol.setCellValueFactory(new PropertyValueFactory<Products, String>("link"));
+        idCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("product_code"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("product_name"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("unit_price"));
+        valueCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("total_price"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<Product, String>("category"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<Product, String>("description"));
+        linkCol.setCellValueFactory(new PropertyValueFactory<Product, String>("link"));
     }
 
     @FXML
@@ -88,7 +82,7 @@ public class FXML_mainController implements Initializable {
         openProductWindow(null);
     }
 
-    void openProductWindow(Products toModify) {
+    void openProductWindow(Product toModify) {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_product.fxml"));
@@ -100,6 +94,7 @@ public class FXML_mainController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Termék felvétele");
             stage.setScene(new Scene(productBox));
+            mainTable.getSelectionModel().setCellSelectionEnabled(true);
             stage.show();
         }
         catch (Exception e) {
@@ -132,7 +127,7 @@ public class FXML_mainController implements Initializable {
 
     public void updateTable() {
         if (mainInStock.isSelected()) {
-            products = FXCollections.observableList(dao.getProducts().stream().filter(p -> p.getQuantity() > 0).collect(Collectors.toList()));
+            products = FXCollections.observableList(dao.getProducts().stream().filter(p -> p.getProductQuantity() > 0).collect(Collectors.toList()));
         }
         else {
             products = FXCollections.observableList(dao.getProducts());
@@ -153,7 +148,7 @@ public class FXML_mainController implements Initializable {
         File file = chooser.showOpenDialog((Stage) mainPane.getScene().getWindow());
 
         try {
-            List<Products> products = CsvImporter.CsvImporter(file.getAbsolutePath());
+            List<Product> products = CsvImporter.CsvImporter(file.getAbsolutePath());
             dao.saveCsvProduct(products);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -174,13 +169,20 @@ public class FXML_mainController implements Initializable {
     void mainTableSelect(MouseEvent event)
     {
         int index = mainTable.getSelectionModel().getSelectedIndex();
-        if (System.currentTimeMillis() - tableLastClick < 2000 && index == tableLastIndex) {
-            if (index > -1) {
-                openProductWindow(products.get(index));
-            }
-        }
-        else {
-            tableLastClick = System.currentTimeMillis();
+//        if (System.currentTimeMillis() - tableLastClick < 2000 && index == tableLastIndex) {
+//            if (index > -1) {
+//                openProductWindow(products.get(index));
+//            }
+//        }
+//        else {
+//            tableLastClick = System.currentTimeMillis();
+//            tableLastIndex = index;
+//        }
+
+        if (event.getClickCount() == 2 && index == tableLastIndex)
+        {
+            openProductWindow(products.get(index));
+        }else{
             tableLastIndex = index;
         }
     }

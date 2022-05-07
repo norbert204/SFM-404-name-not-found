@@ -121,6 +121,7 @@ public class FXML_mainController implements Initializable {
     public void updateTable() {
         products = FXCollections.observableList(dao.getProducts());
         mainTable.setItems(products);
+        mainTable.refresh();
     }
     
     @FXML

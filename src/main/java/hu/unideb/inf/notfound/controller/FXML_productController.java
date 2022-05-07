@@ -5,8 +5,10 @@ import hu.unideb.inf.notfound.model.ProductDAO;
 import hu.unideb.inf.notfound.model.Products;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class FXML_productController {
     private  FXML_mainController mainController;
@@ -30,25 +32,33 @@ public class FXML_productController {
 
     @FXML
     void addProduct(ActionEvent event) {
+        try {
+            Products product = new Products();
+            product.setProduct_code("254");
+            product.setProduct_name(product_name.getText());
+            product.setCategory(category.getText());
+            product.setQuantity(Integer.parseInt(quantity.getText()));
+            product.setUnit_price(Integer.parseInt(unit_price.getText()));
 
-        Products product = new Products();
-        product.setProduct_code("254");
-        product.setProduct_name(product_name.getText());
-        product.setCategory(category.getText());
-        product.setQuantity(Integer.parseInt(quantity.getText()));
-        product.setUnit_price(Integer.parseInt(unit_price.getText()));
+            dao.saveProduct(product);
+            mainController.updateTable();
 
-        dao.saveProduct(product);
-        mainController.updateTable();
-
+            Stage original = (Stage)category.getScene().getWindow();
+            original.close();
+        }
+        catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Hiba a termék hozzáadása során.");
+            alert.showAndWait();
+        }
     }
 
     public void setDao(ProductDAO p) {
         this.dao = p;
     }
 
-    public void setMainController( FXML_mainController Controller  )
+    public void setMainController( FXML_mainController controller  )
     {
-        mainController = Controller;
+        mainController = controller;
     }
 }

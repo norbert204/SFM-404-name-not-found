@@ -24,6 +24,7 @@ import java.io.File;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -108,7 +109,16 @@ public class FXML_mainController implements Initializable {
 
     @FXML
     void removeItem(ActionEvent event) {
-
+        int index = mainTable.getSelectionModel().getSelectedIndex();
+        if (index > -1) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Biztos törli a kijelölt elemet?");
+            var result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                dao.deleteProduct(products.get(index));
+                updateTable();
+            }
+        }
     }
 
     public void setDao(ProductDAO p) {

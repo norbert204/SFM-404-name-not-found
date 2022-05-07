@@ -13,10 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -28,6 +25,7 @@ import java.net.URL;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class FXML_mainController implements Initializable {
 
@@ -68,6 +66,9 @@ public class FXML_mainController implements Initializable {
 
     @FXML
     private Button mainCsv;
+
+    @FXML
+    private CheckBox mainInStock;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -120,11 +121,20 @@ public class FXML_mainController implements Initializable {
     }
 
     public void updateTable() {
-        products = FXCollections.observableList(dao.getProducts());
+        if (mainInStock.isSelected()) {
+            products = FXCollections.observableList(dao.getProducts().stream().filter(p -> p.getQuantity() > 0).collect(Collectors.toList()));
+        }
+        else {
+            products = FXCollections.observableList(dao.getProducts());
+        }
         mainTable.setItems(products);
         mainTable.refresh();
     }
-    
+
+    @FXML
+    void mainInStockCheck(ActionEvent event) {
+        updateTable();
+    }
     @FXML
     void loadCsv(ActionEvent event) {
         FileChooser chooser = new FileChooser();

@@ -19,7 +19,7 @@
                 <TableColumn fx:id="linkCol" editable="false" minWidth="0.0" prefWidth="253.0" resizable="false" text="Link" />
             </columns>
         </TableView>
-        <CheckBox layoutX="1120.0" layoutY="85.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="193.0" text="Csak raktáron lévő termékek" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+        <CheckBox fx:id="mainInStock" layoutX="1120.0" layoutY="85.0" mnemonicParsing="false" onAction="#mainInStockCheck" prefHeight="17.0" prefWidth="193.0" text="Csak raktáron lévő termékek" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Button fx:id="mainCsv" layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadCsv" text="Importálás CSV-ből" />
     </children>
 </AnchorPane>

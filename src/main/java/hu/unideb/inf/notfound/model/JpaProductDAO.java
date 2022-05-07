@@ -19,7 +19,7 @@ public class JpaProductDAO implements ProductDAO{
         A felhasználó által megadott adatokat egy HashMapben kell átadni
          */
         Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.jdbc.url", "jdbc:sqlserver://sfmnotfound.database.windows.net:1433;database=SFM;user=username@sfmnotfound;password=Password1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        properties.put("javax.persistence.jdbc.url", "jdbc:sqlserver://sfmnotfound.database.windows.net:1433;database=SFM;user=username@sfmnotfound;password=Password1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;characterEncoding=utf8");
         properties.put("javax.persistence.jdbc.driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver");
         properties.put("javax.persistence.jdbc.user", username);
         properties.put("javax.persistence.jdbc.password", password);

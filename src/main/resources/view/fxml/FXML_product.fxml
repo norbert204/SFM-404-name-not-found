@@ -5,17 +5,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="product_windows" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="377.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="product_windows" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="377.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.notfound.controller.FXML_productController">
    <children>
-      <TextField id="productName" layoutX="28.0" layoutY="65.0" />
+      <TextField id="productName" fx:id="product_name" layoutX="28.0" layoutY="65.0" />
       <Label layoutX="28.0" layoutY="40.0" text="Termék név" />
-      <TextField id="productName" layoutX="28.0" layoutY="125.0" />
+      <TextField id="productName" fx:id="quantity" layoutX="28.0" layoutY="125.0" />
       <Label layoutX="28.0" layoutY="100.0" text="Mennyiség" />
-      <TextField id="productName" layoutX="28.0" layoutY="182.0" />
+      <TextField id="productName" fx:id="unit_price" layoutX="28.0" layoutY="182.0" />
       <Label layoutX="28.0" layoutY="157.0" text="Nettó ár" />
-      <TextField id="productName" layoutX="28.0" layoutY="247.0" />
+      <TextField id="productName" fx:id="category" layoutX="28.0" layoutY="247.0" />
       <Label layoutX="28.0" layoutY="222.0" text="Kategória" />
-      <Button layoutX="158.0" layoutY="310.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" text="Felvitel" />
+      <Button fx:id="apply" layoutX="158.0" layoutY="310.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="32.0" prefWidth="62.0" text="Felvitel" />
    </children>
 </AnchorPane>

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Products {
     @Column(name = "product_code")
     @Id
-    private int product_code;
+    private String product_code;
 
     @Column(name = "product_name")
     private String product_name;
@@ -32,11 +32,11 @@ public class Products {
     @Column(name = "link")
     private String link;
 
-    public int getProduct_code() {
+    public String getProduct_code() {
         return product_code;
     }
 
-    public void setProduct_code(int product_code) {
+    public void setProduct_code(String product_code) {
         this.product_code = product_code;
     }
 

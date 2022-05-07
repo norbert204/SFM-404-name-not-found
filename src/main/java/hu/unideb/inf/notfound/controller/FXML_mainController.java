@@ -1,6 +1,7 @@
 package hu.unideb.inf.notfound.controller;
 
 import hu.unideb.inf.notfound.model.CsvImporter;
+import hu.unideb.inf.notfound.model.JpaProductDAO;
 import hu.unideb.inf.notfound.model.ProductDAO;
 import hu.unideb.inf.notfound.model.Products;
 import javafx.collections.FXCollections;
@@ -9,6 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -78,6 +82,18 @@ public class FXML_mainController implements Initializable {
 
     @FXML
     void addItem(ActionEvent event) {
+        try
+        {
+         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_product.fxml"));
+        Parent productBox = (Parent) fxmlLoader.load();
+         Stage stage = new Stage();
+         stage.setTitle("Termék felvétele");
+         stage.setScene(new Scene(productBox));
+         stage.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

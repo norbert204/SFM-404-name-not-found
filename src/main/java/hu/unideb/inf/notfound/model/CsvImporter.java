@@ -28,7 +28,7 @@ public class CsvImporter {
 
                 Products product = new Products();
 
-                product.setProduct_code(Integer.parseInt(sordarab[0]));
+                product.setProduct_code(sordarab[0]);
                 product.setProduct_name(sordarab[1]);
                 product.setUnit_price(Integer.parseInt(sordarab[2]));
                 product.setCategory(sordarab[4]);

@@ -14,6 +14,7 @@ public class FXML_productController {
     private  FXML_mainController mainController;
 
     private ProductDAO dao;
+    private Products productToModify = null;
     @FXML
     private Button apply;
 
@@ -33,8 +34,8 @@ public class FXML_productController {
     @FXML
     void addProduct(ActionEvent event) {
         try {
-            Products product = new Products();
-            product.setProduct_code("254");
+            Products product = (productToModify.equals(null)) ? new Products() : productToModify;
+            //product.setProduct_code("254");
             product.setProduct_name(product_name.getText());
             product.setCategory(category.getText());
             product.setQuantity(Integer.parseInt(quantity.getText()));
@@ -60,5 +61,17 @@ public class FXML_productController {
     public void setMainController( FXML_mainController controller  )
     {
         mainController = controller;
+    }
+
+    public void setProductToModify(Products product) {
+        if (product != null) {
+            this.productToModify = product;
+
+            apply.setText("Módosítás");
+            category.setText(product.getCategory());
+            product_name.setText(product.getProduct_name());
+            quantity.setText("" + product.getQuantity());
+            unit_price.setText("" + product.getUnit_price());
+        }
     }
 }

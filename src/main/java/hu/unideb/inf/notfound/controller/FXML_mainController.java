@@ -93,6 +93,7 @@ public class FXML_mainController implements Initializable {
             Parent productBox = (Parent) loader.load();
             FXML_productController controller = loader.getController();
             controller.setDao(this.dao);
+            controller.setProductToModify(toModify);
             controller.setMainController(this);
             Stage stage = new Stage();
             stage.setTitle("Termék felvétele");

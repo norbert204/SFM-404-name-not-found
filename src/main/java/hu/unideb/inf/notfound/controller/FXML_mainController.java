@@ -146,6 +146,7 @@ public class FXML_mainController implements Initializable {
             alert.showAndWait();
         }
 
+        updateTable();
     }
 
     @FXML

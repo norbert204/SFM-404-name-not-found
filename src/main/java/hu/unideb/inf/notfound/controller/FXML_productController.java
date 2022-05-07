@@ -27,8 +27,6 @@ public class FXML_productController {
 
     @FXML
     void addProduct(ActionEvent event) {
-
-
         Products product = new Products();
         product.setProduct_name(product_name.getText());
         product.setCategory(category.getText());

@@ -18,18 +18,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class FXML_mainController implements Initializable {
 
     private ProductDAO dao;
+    private ObservableList<Products> products;
+    private long tableLastClick;
+    private int tableLastIndex = -1;
 
     @FXML
     private AnchorPane mainPane;
@@ -78,6 +83,10 @@ public class FXML_mainController implements Initializable {
 
     @FXML
     void addItem(ActionEvent event) {
+        openProductWindow(null);
+    }
+
+    void openProductWindow(Products toModify) {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_product.fxml"));
@@ -92,7 +101,6 @@ public class FXML_mainController implements Initializable {
         catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -110,7 +118,7 @@ public class FXML_mainController implements Initializable {
     }
 
     void updateTable() {
-        ObservableList<Products> products = FXCollections.observableList(dao.getProducts());
+        products = FXCollections.observableList(dao.getProducts());
         mainTable.setItems(products);
     }
     
@@ -136,5 +144,20 @@ public class FXML_mainController implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    @FXML
+    void mainTableSelect(MouseEvent event)
+    {
+        int index = mainTable.getSelectionModel().getSelectedIndex();
+        if (System.currentTimeMillis() - tableLastClick < 2000 && index == tableLastIndex) {
+            if (index > -1) {
+                openProductWindow(products.get(index));
+            }
+        }
+        else {
+            tableLastClick = System.currentTimeMillis();
+            tableLastIndex = index;
+        }
     }
 }

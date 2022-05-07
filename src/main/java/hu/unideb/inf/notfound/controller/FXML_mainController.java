@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 
 public class FXML_mainController implements Initializable {
 
-    private static ProductDAO dao;
+    private ProductDAO dao;
 
     @FXML
     private AnchorPane mainPane;
@@ -74,22 +74,20 @@ public class FXML_mainController implements Initializable {
         categoryCol.setCellValueFactory(new PropertyValueFactory<Products, String>("category"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Products, String>("description"));
         linkCol.setCellValueFactory(new PropertyValueFactory<Products, String>("link"));
-
-        // TODO: ezt a 2 sort átrakni egy frissítés metódusba
-        ObservableList<Products> products = FXCollections.observableList(dao.getProducts());
-        mainTable.setItems(products);
     }
 
     @FXML
     void addItem(ActionEvent event) {
         try
         {
-         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_product.fxml"));
-        Parent productBox = (Parent) fxmlLoader.load();
-         Stage stage = new Stage();
-         stage.setTitle("Termék felvétele");
-         stage.setScene(new Scene(productBox));
-         stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_product.fxml"));
+            Parent productBox = (Parent) loader.load();
+            FXML_productController controller = loader.getController();
+            controller.setDao(this.dao);
+            Stage stage = new Stage();
+            stage.setTitle("Termék felvétele");
+            stage.setScene(new Scene(productBox));
+            stage.show();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -102,10 +100,20 @@ public class FXML_mainController implements Initializable {
 
     }
 
-    public static void setDao(ProductDAO p) {
-        dao = p;
+    public void setDao(ProductDAO p) {
+        this.dao = p;
+        updateTable();
     }
 
+    public ProductDAO getDao() {
+        return dao;
+    }
+
+    void updateTable() {
+        ObservableList<Products> products = FXCollections.observableList(dao.getProducts());
+        mainTable.setItems(products);
+    }
+    
     @FXML
     void loadCsv(ActionEvent event) {
         FileChooser chooser = new FileChooser();

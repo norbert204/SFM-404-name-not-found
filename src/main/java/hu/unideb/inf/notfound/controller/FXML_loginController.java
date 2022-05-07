@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Time;
@@ -40,13 +41,20 @@ public class FXML_loginController {
 
         try (ProductDAO pDAO = new JpaProductDAO(loginName.getText(), loginPassword.getText()))
         {
-            FXML_mainController.setDao(pDAO);
-            Parent main_parent = FXMLLoader.load(getClass().getResource("/view/fxml/FXML_main.fxml"));
-            Scene main_scene = new Scene(main_parent);
-            Stage inventory = (Stage)((Node)event.getSource()).getScene().getWindow();
-            inventory.setScene(main_scene);
-            inventory.setTitle("Termékek");
-            inventory.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/FXML_main.fxml"));
+            Parent mainParent = loader.load();
+
+            FXML_mainController mainController = loader.getController();
+            mainController.setDao(pDAO);
+
+            Scene mainScene = new Scene(mainParent);
+            Stage stage = new Stage();
+            stage.setTitle("Termékek");
+            stage.setScene(mainScene);
+            stage.show();
+
+            Stage original = (Stage)loginName.getScene().getWindow();
+            original.close();
         }
         catch (Exception e) {
             loginBtn.setDisable(false);

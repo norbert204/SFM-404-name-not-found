@@ -1,10 +1,6 @@
 package hu.unideb.inf.notfound;
 
-import hu.unideb.inf.notfound.model.JpaProductDAO;
-import hu.unideb.inf.notfound.model.ProductDAO;
-import hu.unideb.inf.notfound.model.Products;
 import javafx.application.Application;
-import static hu.unideb.inf.notfound.model.SqlManager.connect;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +20,8 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
         launch(args);
+
+
     }
 
 }

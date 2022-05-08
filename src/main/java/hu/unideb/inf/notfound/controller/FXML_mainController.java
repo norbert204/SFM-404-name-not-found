@@ -102,6 +102,7 @@ public class FXML_mainController implements Initializable {
             controller.setMainController(this);
             Stage stage = new Stage();
             stage.setTitle("Termék felvétele");
+            stage.setResizable(false);
             stage.setScene(new Scene(productBox));
             mainTable.getSelectionModel().setCellSelectionEnabled(true);
             stage.show();

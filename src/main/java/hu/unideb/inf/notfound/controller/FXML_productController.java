@@ -4,14 +4,20 @@ import hu.unideb.inf.notfound.model.Product;
 import hu.unideb.inf.notfound.model.ProductDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 
+import java.net.URL;
 import java.security.MessageDigest;
+import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
-public class FXML_productController {
+public class FXML_productController implements Initializable {
     private  FXML_mainController mainController;
 
     private ProductDAO dao;
@@ -43,7 +49,18 @@ public class FXML_productController {
 
     @FXML
     private Button apply;
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("([1-9][0-9]*)?")) {
+                return change;
+            }
+            return null;
+        };
+        productUnitPrice.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), 0, integerFilter));
+        productUnitPrice.setText("");
+    }
     @FXML
     void addProduct(ActionEvent event) {
         try {

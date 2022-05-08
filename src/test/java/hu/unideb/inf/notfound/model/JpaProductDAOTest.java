@@ -20,12 +20,7 @@ class JpaProductDAOTest {
     void setUp() {
         ProductDAOMock = mock(ProductDAO.class);
         product = new Product();
-    }
 
-    @Test
-    void checkSaveProduct() {
-
-        List<Product> products = new ArrayList<>();
         product.setProductCode("5");
         product.setProductName("termék");
         product.setUnit_price(200);
@@ -34,8 +29,15 @@ class JpaProductDAOTest {
         product.setDescription("leírás");
         product.setLink("link");
 
-        ProductDAOMock.saveProduct(product);
+    }
+
+    @Test
+    void checkSaveProduct() {
+
+        List<Product> products = new ArrayList<>();
         products.add(product);
+        ProductDAOMock.saveProduct(product);
+
 
         assert ProductDAOMock.getProducts().containsAll(products);
 
@@ -44,6 +46,8 @@ class JpaProductDAOTest {
 
     @Test
     void checkDeleteProduct() {
+        ProductDAOMock.deleteProduct(product);
+        assert !ProductDAOMock.getProducts().contains(product);
     }
 
     @Test

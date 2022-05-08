@@ -25,7 +25,19 @@ class JpaProductDAOTest {
     @Test
     void checkSaveProduct() {
 
+        List<Product> products = new ArrayList<>();
+        product.setProductCode("5");
+        product.setProductName("termék");
+        product.setUnit_price(200);
+        product.setQuantity(1);
+        product.setCategory("kategória");
+        product.setDescription("leírás");
+        product.setLink("link");
 
+        ProductDAOMock.saveProduct(product);
+        products.add(product);
+
+        assert ProductDAOMock.getProducts().containsAll(products);
 
     }
 
@@ -36,21 +48,9 @@ class JpaProductDAOTest {
 
     @Test
     void checkGetProducts() {
-        List<Product> products = new ArrayList<>();
-        product.setProductCode("5");
-        product.setProductName("termék");
-        product.setUnit_price(200);
-        product.setQuantity(1);
-        product.setCategory("kategória");
-        product.setDescription("leírás");
-        product.setLink("link");
-
-        products.add(product);
 
 
-        ProductDAOMock.saveProduct(product);
 
-        assert  ProductDAOMock.getProducts().equals(products);
 
     }
 

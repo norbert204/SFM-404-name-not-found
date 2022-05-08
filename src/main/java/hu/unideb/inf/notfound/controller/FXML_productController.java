@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.security.MessageDigest;
+
 public class FXML_productController {
     private  FXML_mainController mainController;
 
@@ -45,8 +47,14 @@ public class FXML_productController {
     @FXML
     void addProduct(ActionEvent event) {
         try {
+            if (productToModify == null && dao.getProducts().stream().filter(p -> p.getProduct_code().equals(productCode.getText())).count() > 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Termék ezzel a kóddal már létezik!");
+                alert.showAndWait();
+                return;
+            }
             Product product = (productToModify == null) ? new Product() : productToModify;
-            product.setProductCode("125");
+            product.setProductCode(productCode.getText());
             product.setProductName(productName.getText());
             product.setCategory(productCategory.getText());
             product.setQuantity(Integer.parseInt(productQuantity.getText()));
@@ -82,6 +90,7 @@ public class FXML_productController {
         if (product != null) {
             this.productToModify = product;
 
+            productCode.setText(product.getProduct_code());
             productName.setText(product.getProduct_name());
             productCategory.setText(product.getCategory());
             productQuantity.setText("" + product.getQuantity());

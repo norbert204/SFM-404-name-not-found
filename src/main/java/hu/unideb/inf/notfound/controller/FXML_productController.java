@@ -48,9 +48,9 @@ public class FXML_productController {
             Product product = (productToModify == null) ? new Product() : productToModify;
             product.setProductCode("125");
             product.setProductName(productName.getText());
-            product.setProductCategory(productCategory.getText());
-            product.setProductQuantity(Integer.parseInt(productQuantity.getText()));
-            product.setProductUnitPrice(Integer.parseInt(productUnitPrice.getText()));
+            product.setCategory(productCategory.getText());
+            product.setQuantity(Integer.parseInt(productQuantity.getText()));
+            product.setUnit_price(Integer.parseInt(productUnitPrice.getText()));
             product.setTotal_price(product.getTotal_price());
             product.setDescription(productDescription.getText());
             product.setLink(productLink.getText());
@@ -82,10 +82,10 @@ public class FXML_productController {
         if (product != null) {
             this.productToModify = product;
 
-            productName.setText(product.getProductName());
-            productCategory.setText(product.getProductCategory());
-            productQuantity.setText("" + product.getProductQuantity());
-            productUnitPrice.setText("" + product.getProductUnitPrice());
+            productName.setText(product.getProduct_name());
+            productCategory.setText(product.getCategory());
+            productQuantity.setText("" + product.getQuantity());
+            productUnitPrice.setText("" + product.getUnit_price());
             productTotalPrice.setText(""+product.getTotal_price());
             productDescription.setText(product.getDescription());
             productLink.setText(product.getLink());

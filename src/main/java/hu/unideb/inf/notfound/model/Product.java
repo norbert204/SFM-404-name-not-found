@@ -6,25 +6,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Product {
-
     @Column(name = "product_code")
     @Id
-    private String productCode;
+    private String product_code;
 
     @Column(name = "product_name")
-    private String productName;
+    private String product_name;
 
     @Column(name = "quantity")
-    private int productQuantity;
+    private int quantity;
 
     @Column(name = "unit_price")
-    private int productUnitPrice;
+    private int unit_price;
 
     @Column(name = "total_price")
     private int total_price;
 
     @Column(name = "category")
-    private String productCategory;
+    private String category;
 
     @Column(name = "description")
     private String description;
@@ -32,54 +31,52 @@ public class Product {
     @Column(name = "link")
     private String link;
 
-
-
-    public String getProductCode() {
-        return productCode;
+    public String getProduct_code() {
+        return product_code;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setProductCode(String product_code) {
+        this.product_code = product_code;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductName(String product_name) {
+        this.product_name = product_name;
     }
 
-    public int getProductQuantity() {
-        return productQuantity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setProductQuantity(int productQuantity) {
-        this.productQuantity = productQuantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int getProductUnitPrice() {
-        return productUnitPrice;
+    public int getUnit_price() {
+        return unit_price;
     }
 
-    public void setProductUnitPrice(int productUnitPrice) {
-        this.productUnitPrice = productUnitPrice;
+    public void setUnit_price(int unit_price) {
+        this.unit_price = unit_price;
     }
 
     public int getTotal_price() {
-        return productUnitPrice * productQuantity;
+        return this.unit_price * this.quantity;
     }
 
     public void setTotal_price(int total_price) {
         this.total_price = total_price;
     }
 
-    public String getProductCategory() {
-        return productCategory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getDescription() {

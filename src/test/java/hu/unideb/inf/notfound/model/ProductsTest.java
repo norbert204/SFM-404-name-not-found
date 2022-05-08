@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProductsTest {
+class ProductTest {
 
     @Test
     void setProduct_code() {
         Product termek = new Product();
         termek.setProductCode("5");
-        assertEquals("5",termek.getProductCode());
+        assertEquals("5",termek.getProduct_code());
     }
 
 
@@ -20,7 +20,7 @@ class ProductsTest {
     void setProduct_name() {
         Product termek = new Product();
         termek.setProductName("cipo");
-        assertEquals("cipo",termek.getProductName());
+        assertEquals("cipo",termek.getProduct_name());
 
     }
 
@@ -29,8 +29,8 @@ class ProductsTest {
     @Test
     void setQuantity() {
         Product termek = new Product();
-        termek.setProductQuantity(10);
-        assertEquals(10,termek.getProductQuantity());
+        termek.setQuantity(10);
+        assertEquals(10,termek.getQuantity());
     }
 
 
@@ -38,16 +38,16 @@ class ProductsTest {
     @Test
     void setUnit_price() {
         Product termek = new Product();
-        termek.setProductUnitPrice(30);
-        assertEquals(30,termek.getProductUnitPrice());
+        termek.setUnit_price(30);
+        assertEquals(30,termek.getUnit_price());
     }
 
 
     @Test
     void setCategory() {
         Product termek = new Product();
-        termek.setProductCategory("labbeli");
-        assertEquals("labbeli",termek.getProductCategory());
+        termek.setCategory("labbeli");
+        assertEquals("labbeli",termek.getCategory());
     }
 
 

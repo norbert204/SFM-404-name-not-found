@@ -127,7 +127,7 @@ public class FXML_mainController implements Initializable {
 
     public void updateTable() {
         if (mainInStock.isSelected()) {
-            products = FXCollections.observableList(dao.getProducts().stream().filter(p -> p.getProductQuantity() > 0).collect(Collectors.toList()));
+            products = FXCollections.observableList(dao.getProducts().stream().filter(p -> p.getQuantity() > 0).collect(Collectors.toList()));
         }
         else {
             products = FXCollections.observableList(dao.getProducts());

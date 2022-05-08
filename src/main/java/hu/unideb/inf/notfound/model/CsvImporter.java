@@ -9,8 +9,7 @@ import java.util.List;
 
 public class CsvImporter {
 
-    public static List<Product> CsvImporter(String csvlocation)
-    {
+    public static List<Product> CsvImporter(String csvlocation) {
         List<Product> termekek = new ArrayList<>();
         BufferedReader reader;
 
@@ -27,10 +26,10 @@ public class CsvImporter {
 
                 product.setProductCode(sordarab[0]);
                 product.setProductName(sordarab[1]);
-                product.setProductUnitPrice(Integer.parseInt(sordarab[2]));
-                product.setProductCategory(sordarab[4]);
+                product.setUnit_price(Integer.parseInt(sordarab[2]));
+                product.setCategory(sordarab[4]);
                 product.setDescription(sordarab[5]);
-                product.setProductQuantity(Integer.parseInt(sordarab[6]));
+                product.setQuantity(Integer.parseInt(sordarab[6]));
                 product.setLink(sordarab[7]);
 
 

@@ -14,7 +14,7 @@ public class JpaProductDAO implements ProductDAO{
     private EntityManager entityManager;
 
     public JpaProductDAO(String username, String password) {
-        /*
+      /*
         Login felületen megadott adatok miatt nem lehet teljesen hasznosítani a persistence.xml-t.
         A felhasználó által megadott adatokat egy HashMapben kell átadni
          */
@@ -50,13 +50,13 @@ public class JpaProductDAO implements ProductDAO{
         entityManager.getTransaction().commit();
     }
 
-   /* @Override
-    public void updateProduct(Product p) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(p);                       // ez most nem kell
-        entityManager.getTransaction().commit();
-    }
-*/
+    /* @Override
+     public void updateProduct(Product p) {
+         entityManager.getTransaction().begin();
+         entityManager.persist(p);                       // ez most nem kell
+         entityManager.getTransaction().commit();
+     }
+ */
     @Override
     public List<Product> getProducts() {
 

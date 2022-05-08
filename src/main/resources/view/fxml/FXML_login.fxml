@@ -48,9 +48,9 @@
             </rowConstraints>
             <children>
                 <ImageView fitHeight="200.0" fitWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@../styles/images/profile.png" />
-               </image></ImageView>
+                    <image>
+                        <Image url="@../styles/images/profile.png" />
+                    </image></ImageView>
                 <VBox alignment="CENTER" prefHeight="413.0" prefWidth="431.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
                         <GridPane>
@@ -83,7 +83,7 @@
                                 </PasswordField>
                             </children>
                         </GridPane>
-                    <Label id="error_box" fx:id="loginStatus" prefHeight="28.0" prefWidth="393.0" />
+                        <Label id="error_box" fx:id="loginStatus" prefHeight="28.0" prefWidth="393.0" />
                     </children>
                 </VBox>
             </children>

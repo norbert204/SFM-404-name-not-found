@@ -53,6 +53,12 @@ public class FXML_productController {
                 alert.showAndWait();
                 return;
             }
+            if (productCode.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Adjon meg a terméknek kódot!");
+                alert.showAndWait();
+                return;
+            }
             Product product = (productToModify == null) ? new Product() : productToModify;
             product.setProductCode(productCode.getText());
             product.setProductName(productName.getText());

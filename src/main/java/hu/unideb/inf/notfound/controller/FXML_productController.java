@@ -53,13 +53,15 @@ public class FXML_productController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UnaryOperator<TextFormatter.Change> integerFilter = change -> {
             String newText = change.getControlNewText();
-            if (newText.matches("([1-9][0-9]*)?")) {
+            if (newText.matches("([0-9]*)?")) {
                 return change;
             }
             return null;
         };
         productUnitPrice.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), 0, integerFilter));
         productUnitPrice.setText("");
+        productQuantity.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), 0, integerFilter));
+        productQuantity.setText("");
     }
     @FXML
     void addProduct(ActionEvent event) {

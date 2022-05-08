@@ -14,6 +14,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.hibernate.service.spi.ServiceException;
+
 import java.io.IOException;
 import java.sql.Time;
 import java.util.concurrent.CompletableFuture;
@@ -58,7 +60,7 @@ public class FXML_loginController {
         }
         catch (Exception e) {
             loginBtn.setDisable(false);
-            loginStatus.setText(e.getMessage());
+            loginStatus.setText("Hibás felhasználónév és/vagy jelszó!");
             e.printStackTrace();
         }
     }

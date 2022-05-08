@@ -75,6 +75,15 @@ public class FXML_mainController implements Initializable {
         categoryCol.setCellValueFactory(new PropertyValueFactory<Product, String>("category"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Product, String>("description"));
         linkCol.setCellValueFactory(new PropertyValueFactory<Product, String>("link"));
+
+        idCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        nameCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        quantityCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        priceCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        valueCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        categoryCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
+        descriptionCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/10.0));
+        linkCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/10.0));
     }
 
     @FXML

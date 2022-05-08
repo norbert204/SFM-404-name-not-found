@@ -10,7 +10,7 @@
     <children>
         <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="107.0" text="Új termék" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
         <Button layoutX="129.0" layoutY="21.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="153.0" text="Termék levétele" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="14.0" />
-        <TableView fx:id="mainTable" layoutX="14.0" layoutY="51.0" onMouseClicked="#mainTableSelect" prefHeight="675.0" prefWidth="1299.0" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="51.0">
+        <TableView fx:id="mainTable" layoutX="14.0" layoutY="51.0" onMouseClicked="#mainTableSelect" prefHeight="676.0" prefWidth="1299.0" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="51.0">
             <columns>
                 <TableColumn fx:id="idCol" editable="false" resizable="false" text="Cikkszám" />
                 <TableColumn fx:id="nameCol" editable="false" prefWidth="142.0" resizable="false" text="Terméknév" />
@@ -24,6 +24,6 @@
         </TableView>
         <CheckBox fx:id="mainInStock" layoutX="1120.0" layoutY="85.0" mnemonicParsing="false" onAction="#mainInStockCheck" prefHeight="17.0" prefWidth="193.0" text="Csak raktáron lévő termékek" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
         <Button fx:id="mainCsv" layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadCsv" text="Importálás CSV-ből" />
-        <Button layoutX="1191.0" layoutY="742.0" mnemonicParsing="false" onAction="#updateTable" text="Termékek frissítése" />
+      <Button layoutX="1179.0" layoutY="742.0" mnemonicParsing="false" onAction="#updateTable" text="Termékek frissítése" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="31.0" />
     </children>
 </AnchorPane>

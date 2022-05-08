@@ -27,10 +27,10 @@ public class CsvImporter {
                 product.setProductCode(sordarab[0]);
                 product.setProductName(sordarab[1]);
                 product.setUnit_price(Integer.parseInt(sordarab[2]));
+                product.setQuantity(Integer.parseInt(sordarab[3]));
                 product.setCategory(sordarab[4]);
                 product.setDescription(sordarab[5]);
-                product.setQuantity(Integer.parseInt(sordarab[6]));
-                product.setLink(sordarab[7]);
+                product.setLink(sordarab[6]);
 
 
                 termekek.add(product);

@@ -53,6 +53,8 @@ public class FXML_productController {
                 alert.showAndWait();
                 return;
             }
+
+
             if (productCode.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Adjon meg a terméknek kódot!");

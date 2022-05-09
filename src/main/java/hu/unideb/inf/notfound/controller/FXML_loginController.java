@@ -60,7 +60,7 @@ public class FXML_loginController {
         }
         catch (Exception e) {
             loginBtn.setDisable(false);
-            loginStatus.setText("Hibás felhasználónév és/vagy jelszó!");
+            loginStatus.setText("Hiba a szerverre való csatlakozás során!\nEllenőrizze a felhasználónevet és jelszót!");
             e.printStackTrace();
         }
     }

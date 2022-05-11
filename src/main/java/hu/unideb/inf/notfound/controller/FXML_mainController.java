@@ -76,14 +76,24 @@ public class FXML_mainController implements Initializable {
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Product, String>("description"));
         linkCol.setCellValueFactory(new PropertyValueFactory<Product, String>("link"));
 
-        idCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        nameCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        quantityCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        priceCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        valueCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        categoryCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/10.0));
-        descriptionCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/10.0));
-        linkCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/10.0));
+        idCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(1.0/19.0));
+        nameCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/19.0));
+        quantityCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/19.0));
+        priceCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/19.0));
+        valueCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/19.0));
+        categoryCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(2.0/19.0));
+        descriptionCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(4.0/19.0));
+        linkCol.prefWidthProperty().bind(mainTable.widthProperty().multiply(3.885/19.0));
+
+
+        idCol.setReorderable(false);
+        nameCol.setReorderable(false);
+        quantityCol.setReorderable(false);
+        priceCol.setReorderable(false);
+        valueCol.setReorderable(false);
+        categoryCol.setReorderable(false);
+        descriptionCol.setReorderable(false);
+        linkCol.setReorderable(false);
     }
 
     @FXML

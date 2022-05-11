@@ -9,12 +9,22 @@
 }
 
 #login_button {
-    -fx-font-size: 2em;
+    -fx-font-size: 1.5em;
     -fx-border-width: 3px;
-    -fx-background-color: linear-gradient(from 25px 25px to 100px 100px, black, rgb(240, 237, 237));
-    -fx-text-fill: #00ff00;
-    -fx-background-radius: 1200px;
+    /* -fx-background-radius: 1200px; */
     -fx-font-weight: bold;
+    -fx-padding:10px;
+    -fx-cursor:hand;
+}
+
+.buttonType{
+    -fx-cursor:hand;
+    -fx-border-width:2px;
+    -fx-font-weight:bold;
+}
+
+.buttonType:focused{
+        -fx-border-color:#00ff00;
 }
 
 .login_data {
@@ -51,7 +61,7 @@
 }
 
 .table-view .column-header-background .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #00ff00;
 }
 
 #pane {
@@ -62,8 +72,13 @@
     -fx-background-color: #2c3845;
 }
 
+.text-field:focused{
+    -fx-border-width:2px;
+    -fx-border-color:#00ff00;
+}
 
-.label {
+.text-field{
+    -fx-font-weight:bold;
+    -fx-font-size:14px;
 
-    -fx-text-fill: #00ff00;
 }

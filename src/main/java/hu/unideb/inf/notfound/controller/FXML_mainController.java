@@ -94,6 +94,8 @@ public class FXML_mainController implements Initializable {
         categoryCol.setReorderable(false);
         descriptionCol.setReorderable(false);
         linkCol.setReorderable(false);
+
+//        mainTable.getSelectionModel().setCellSelectionEnabled(true);
     }
 
     @FXML
@@ -114,7 +116,6 @@ public class FXML_mainController implements Initializable {
             stage.setTitle("Termék felvétele");
             stage.setResizable(false);
             stage.setScene(new Scene(productBox));
-            mainTable.getSelectionModel().setCellSelectionEnabled(true);
             stage.show();
         }
         catch (Exception e) {

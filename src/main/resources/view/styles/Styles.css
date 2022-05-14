@@ -19,12 +19,12 @@
 
 .buttonType{
     -fx-cursor:hand;
-    -fx-border-width:2px;
     -fx-font-weight:bold;
 }
 
-.buttonType:focused{
+.buttonType:hover{
         -fx-border-color:#00ff00;
+        -fx-border-width:2px;
 }
 
 .login_data {
@@ -81,4 +81,16 @@
     -fx-font-weight:bold;
     -fx-font-size:14px;
 
+}
+
+.label{
+    -fx-text-fill:#00ff00;
+}
+
+#descriptionField, #linkField{
+    -fx-pref-width:35em;
+}
+
+.table-row-cell:selected {
+   -fx-background-color: steelblue;
 }

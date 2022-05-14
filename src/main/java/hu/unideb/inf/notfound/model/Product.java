@@ -31,67 +31,69 @@ public class Product {
     @Column(name = "link")
     private String link;
 
-    public String getProduct_code() {
-        return product_code;
-    }
-
     public void setProductCode(String product_code) {
         this.product_code = product_code;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProduct_code() {
+        return product_code;
     }
 
     public void setProductName(String product_name) {
         this.product_name = product_name;
     }
 
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity>-1 ? quantity:0;
+    }
+
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setUnit_price(int unit_price) {
+
+        this.unit_price = unit_price >-1? unit_price:0;
     }
 
     public int getUnit_price() {
         return unit_price;
     }
 
-    public void setUnit_price(int unit_price) {
-        this.unit_price = unit_price;
+
+    public void setTotal_price() {
+        this.total_price = this.unit_price * this.quantity;
     }
 
     public int getTotal_price() {
-        return this.unit_price * this.quantity;
-    }
-
-    public void setTotal_price(int total_price) {
-        this.total_price = total_price;
-    }
-
-    public String getCategory() {
-        return category;
+        return this.total_price;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getLink() {
-        return link;
+    public String getDescription() {
+        return description;
     }
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getLink() {
+        return link;
     }
 }

@@ -12,6 +12,7 @@ import static org.mockito.Mockito.mock;
 
 class JpaProductDAOTest {
 
+
     private ProductDAO ProductDAOMock;
     private Product product ;
 

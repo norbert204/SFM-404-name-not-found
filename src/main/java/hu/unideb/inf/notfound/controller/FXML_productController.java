@@ -84,7 +84,8 @@ public class FXML_productController implements Initializable {
             product.setCategory(productCategory.getText());
             product.setQuantity(Integer.parseInt(productQuantity.getText()));
             product.setUnit_price(Integer.parseInt(productUnitPrice.getText()));
-            product.setTotal_price(product.getTotal_price());
+            product.setTotal_price();
+            productTotalPrice.setText(product.getTotal_price()+"");
             product.setDescription(productDescription.getText());
             product.setLink(productLink.getText());
 
